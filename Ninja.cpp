@@ -7,11 +7,11 @@ static const int SPRITE_WIDTH = 50;
 static const int SPRITE_HEIGHT = 50;
 
 Ninja::Ninja(int maxSpeed, int maxPaceLevel, int xSize) : _spriteSheet(), _maxSpeed(maxSpeed), _maxPaceLevel(maxPaceLevel),
-	_paceStep(maxSpeed/maxPaceLevel), _xSize(xSize), _curSpeed(0), _curPos(), _curDir(DIR_NONE), _prevDir(DIR_NONE),
+	_paceStep(maxSpeed/maxPaceLevel), _xSize(xSize), _curSpeed(0), _curPos(), _prevDir(DIR_NONE), _curDir(DIR_NONE),
 	_startDir(0) {}
 
 void Ninja::init(SDL_Renderer *renderer, int initX, int initY) {
-	SDL_LogInfo(SDL_LOG_CATEGORY_APPLICATION, "Carregando sprite sheet em [%s]", SPRITE_SHEET_PATH);
+	SDL_LogInfo(SDL_LOG_CATEGORY_APPLICATION, "Carregando sprite sheet em [%s]", SPRITE_SHEET_PATH.c_str());
 	_spriteSheet.init(renderer, SPRITE_SHEET_PATH, NUM_SPRITES, SPRITE_WIDTH, SPRITE_HEIGHT);
 	_curPos = { initX,  initY, SPRITE_WIDTH, SPRITE_HEIGHT };
 }
